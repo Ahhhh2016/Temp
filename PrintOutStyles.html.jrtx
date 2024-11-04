@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperTemplate PUBLIC "-//JasperReports//DTD Template//EN" "http://jasperreports.sourceforge.net/dtds/jaspertemplate.dtd">
+
+<jasperTemplate>
+	<style name="Title" forecolor="#000000" backcolor="#FFFFFF" hAlign="Left" vAlign="Middle" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true" pdfEncoding="Cp1252" />
+	<style name="Page" forecolor="#000000" backcolor="#FFFFFF" hAlign="Left" vAlign="Middle" fontSize="9" isBold="false" pdfFontName="Helvetica" isPdfEmbedded="true" pdfEncoding="Cp1252" />
+	<style name="PageBold" style="Page" isBold="true" pdfFontName="Helvetica-Bold" />
+	
+	<style name="Body" isDefault="true" forecolor="#000000" backcolor="#FFFFFF" hAlign="Left" vAlign="Middle" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" isPdfEmbedded="true" pdfEncoding="Cp1252" />
+	<style name="ColumnHeader" style="Body" fontSize="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="ColumnFooter" style="Body" hAlign="Right" fontSize="9"/>
+	<style name="PaymentValue" forecolor="#000000" backcolor="#FFFFFF" fontSize="9" isBold="true" hAlign="Left" vAlign="Middle"  isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="true" pdfEncoding="Cp1252" pdfFontName="Consolas"/>
+	<style name="PaymentLabel" style="Body" forecolor="#FF0000" fontSize="9" isBold="true"/>
+		
+	<style name="Footer" style="Body" />
+	<style name="Summary" style="Body" fontSize ="9" />
+	<style name="SummaryBold" style="Body" fontSize="9" isBold="true" pdfFontName="Helvetica-Bold" />
+	
+	<style name="Dashed" forecolor="#000000" backcolor="#FFFFFF" hAlign="Left" vAlign="Middle" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="true" pdfFontName="Helvetica" isPdfEmbedded="true" pdfEncoding="Cp1252" />
+</jasperTemplate>
