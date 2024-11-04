@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Declarations" language="groovy" pageWidth="535" pageHeight="842" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<template class="java.io.InputStream"><![CDATA[$P{SR_TEMPLATE}]]></template>
+	<parameter name="DF_NMU" class="java.lang.Object" isForPrompting="false"/>
+	<parameter name="P_AMT_LABEL" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="P_DEC_REF_LABEL" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="P_AST_REF_LABEL" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="P_SAD_MODEL_LABEL" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="P_TOT_SAD_LABEL" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="P_TOT_SAD" class="java.math.BigDecimal" isForPrompting="false"/>
+	<parameter name="SR_TEMPLATE" class="java.io.InputStream" isForPrompting="false"/>
+	<field name="DEC.YEA" class="java.lang.String"/>
+	<field name="DEC.REF" class="java.lang.String"/>
+	<field name="ASS.YEA" class="java.lang.String"/>
+	<field name="ASS.SER" class="java.lang.String"/>
+	<field name="ASS.NBR" class="java.lang.String"/>
+	<field name="MOD" class="java.lang.String"/>
+	<field name="AMT" class="java.math.BigDecimal"/>
+	<field name="ASS.DAT" class="java.util.Date"/>
+	<field name="CUO.COD" class="java.lang.String"/>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="540" height="18" forecolor="#EBEBEB" backcolor="#EBEBEB"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement style="ColumnHeader" x="0" y="0" width="200" height="18"/>
+				<box leftPadding="5"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_DEC_REF_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="ColumnHeader" x="200" y="0" width="160" height="18"/>
+				<box leftPadding="0"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_AST_REF_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="ColumnHeader" x="360" y="0" width="60" height="18"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_SAD_MODEL_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="ColumnHeader" x="420" y="0" width="115" height="18"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_AMT_LABEL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="200" height="15"/>
+				<box leftPadding="5"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DEC.YEA} + " " + $F{DEC.REF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="160" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{CUO.COD} != null ? $F{CUO.COD} + " ":"") +
+($F{ASS.YEA} != null ? $F{ASS.YEA} + " ":
+    ($F{ASS.DAT} != null ? new SimpleDateFormat("yyyy").format($F{ASS.DAT}) + " ":""))
++ $F{ASS.SER} + " " +$F{ASS.NBR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="0" width="60" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MOD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="115" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[((DecimalFormat)$P{DF_NMU}).format($F{AMT})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="18">
+			<textField>
+				<reportElement style="ColumnFooter" x="0" y="0" width="420" height="18"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_TOT_SAD_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="ColumnFooter" x="420" y="0" width="115" height="18"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[((DecimalFormat)$P{DF_NMU}).format($P{P_TOT_SAD})]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
